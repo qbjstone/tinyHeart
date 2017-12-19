@@ -24,8 +24,17 @@ var my;
 
 var babyTail=[];
 var babyEye=[];
+var babyBody=[];
 
 
+var momTail=[];
+
+var momEye=[];
+
+var momBodyOra=[];
+var momBodyBlue=[];
+
+var data;
 
 
 
@@ -79,8 +88,37 @@ babyEye[i].src="./src/babyEye"+i+".png";
 
 }
 
+for (var i = 0; i < 20; i++) {
+	babyBody[i]=new Image();
+	babyBody[i].src="./src/babyFade"+i+".png";
 
+}
 
+for (var i=0;i<8;i++) {
+
+	momTail[i]=new Image();
+	momTail[i].src="./src/bigTail"+i+".png";
+	
+}
+
+for(var i=0;i<2;i++){
+momEye[i]=new Image();
+momEye[i].src="./src/bigEye"+i+".png";
+
+}
+
+data=new dataObj();
+
+for (var i = 0; i < 8; i++) {
+	
+	momBodyOra[i]=new Image();
+	momBodyBlue[i]=new Image();
+	momBodyOra[i].src="./src/bigSwim"+i+".png";
+	momBodyBlue[i].src="./src/bigSwimBlue"+i+".png";
+
+}
+	ctx1.font="30px Verdana";
+	ctx1.textAlign="center";
 
 }
 
@@ -102,20 +140,30 @@ fruit.draw();
 ctx1.clearRect(0,0,canWidth,canHeight);
 
 mom.draw();
-momFruitsCollision();
-
 baby.draw();
+momFruitsCollision();
+momBabyCollision();
+
+data.draw();
+
+
 }
 
 function onMouseMove(e){
+	if (!data.gameOver) {
 
-	if (e.offSetX||e.layerX) {
+		if (e.offSetX||e.layerX) {
 mx=e.offSetX==undefined?e.layerX:e.offSetX;
 my=e.offSetY==undefined?e.layerY:e.offSetY;
 //console.log(mx);
 
 
 	}
+
+
+	}
+
+	
 
 
 }
